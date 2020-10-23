@@ -56,7 +56,7 @@ function stringReverse(string, devider) {
 }
 
 console.log(stringReverse(' A fun little challenge! '));
-// https://jsfiddle.net/1p3znveo/
+// https://jsfiddle.net/j82on4fr/
 
 // 5) Write a function stringExpansion
 function stringExpansion(string) {
@@ -72,7 +72,7 @@ function stringExpansion(string) {
 }
 
 console.log(stringExpansion('3a45Bcd2d8a'));
-// https://jsfiddle.net/pzh5v2y9/
+// https://jsfiddle.net/j82on4fr/1/
 
 // 6) Write largest and smallest functions that returns
 // the largest and smallest number passed like a argument.
@@ -91,8 +91,8 @@ console.log(smallest(2, 0.1, -5, 100, 3));
 // 7) Write function transform that will transform array of numbers
 // to array of functions that will return value from a base array.
 function transform(arr) {
-    let result = [];
-    for (let i = 0; i < arr.length; i++) {
+    var result = [];
+    for (var i = 0; i < arr.length; i++) {
         result.push(function (value) {
             return function () {
                 return value;
@@ -105,7 +105,7 @@ function transform(arr) {
 const baseArray = [10, 20, 30, 40, 50];
 const newArray = transform(baseArray);
 console.log(newArray[3]());
-// https://jsfiddle.net/0mx4gLqj/
+// https://jsfiddle.net/cd4ge81q/
 
 // 8) Write function sum. Function expects arbitrary number of digit
 // arguments and returns compound value of them.
@@ -129,10 +129,10 @@ console.log(sum(1,3,5,7));
 // 9) Write function countDown. Function expects number and logs
 // values one by one till zero with one second delay.
 function countDown (number) {
-    let counter = Number(number) || 0; // if number is string
+    var counter = Number(number) || 0; // if number is string
     if (counter < 0) counter = 0; // if number is less than zero
     console.log(counter);
-    let timer = setInterval(function () {
+    var timer = setInterval(function () {
         if (counter <= 0) {
             clearInterval(timer);
             return;
@@ -143,13 +143,13 @@ function countDown (number) {
 }
 
 countDown(8);
-// https://jsfiddle.net/1phqLsum/1/
+// https://jsfiddle.net/su065doh/
 
 // 10) Write a polyfill for a .bind() function and save it in Function.prototype.myBind().
 // myBind() should work in an exact same way as the usual bind() - take context
 // as a first parameter and the list of arguments separated by comma.
 Function.prototype.myBind = function (context) {
-    let myfunction = this;
+    var myfunction = this;
     return function(number) {
         return myfunction.call(context, number);
     }
@@ -159,6 +159,6 @@ function addPropToNumber(number) {
     return this.prop + number
 }
 
-let bound = addPropToNumber.myBind({ prop: 9 });
+var bound = addPropToNumber.myBind({ prop: 9 });
 console.log(bound(2));
-// https://jsfiddle.net/1phqLsum/2/
+// https://jsfiddle.net/s8vj21tg/
